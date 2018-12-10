@@ -113,6 +113,7 @@ max_lines_visible = -1
 [node name="Area" type="Area2D" parent="."]
 
 editor/display_folded = true
+visibility/visible = false
 input/pickable = true
 shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -140,6 +141,6 @@ _update_shape_index = 1
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 214.792, 599.745 )
+transform/pos = Vector2( 136.686, 647.167 )
 
 
