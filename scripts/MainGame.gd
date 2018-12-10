@@ -29,7 +29,7 @@ func count_score():
 	lbl_score.set_text(str(score))
 
 func area_die():
-	if player.get_pos().y <= 39:
+	if player.get_pos().y <= 45:
 		print("DIE")
 		game_over()
 	elif player.get_pos().y >= 1021:
@@ -37,8 +37,9 @@ func area_die():
 		game_over()
 
 func game_over():
-	state = game_states.STOPED
 	set_process_game(false,true)
+	state = game_states.STOPED
+	get_node("Player/Anim").stop()
 	player.set_linear_velocity(Vector2(-100,0))
 
 func set_process_game(process, porcess_input):
