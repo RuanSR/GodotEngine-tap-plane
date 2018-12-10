@@ -8,7 +8,7 @@ enum game_states {PLAYING, WAITING, STOPED}
 var score = 0
 var state
 
-var player_pos = Vector2(310,1280/2)
+var player_pos = Vector2(200,1280/2)
 
 func _ready():
 	set_process_game()
