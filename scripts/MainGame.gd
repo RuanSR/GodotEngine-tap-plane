@@ -4,9 +4,11 @@ onready var lbl_score = get_node("HUD/Score")
 onready var player = get_node("Player")
 
 enum game_states {PLAYING, WAITING, STOPED}
+enum game_dificulty {EASY, NORMAL, HARD}
 
 var score = 0
 var state
+var dificulty
 
 var player_pos = Vector2(200,1280/2)
 
@@ -15,6 +17,7 @@ func _ready():
 	player.set_pos(player_pos)
 	lbl_score.set_text(str(score))
 	state = game_states.PLAYING
+	dificulty = game_dificulty.HARD
 
 func _input(event):
 	if event.is_action_pressed("ui_touch"):
