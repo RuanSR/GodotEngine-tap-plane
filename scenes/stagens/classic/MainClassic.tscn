@@ -48,7 +48,7 @@ scroll/limit_begin = Vector2( 0, 0 )
 scroll/limit_end = Vector2( 0, 0 )
 scroll/ignore_camera_zoom = true
 script/script = ExtResource( 2 )
-bg_is_runing = false
+bg_is_runing = true
 speed = 200
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="BG"]
@@ -77,7 +77,7 @@ scroll/limit_begin = Vector2( 0, 0 )
 scroll/limit_end = Vector2( 0, 0 )
 scroll/ignore_camera_zoom = true
 script/script = ExtResource( 2 )
-bg_is_runing = false
+bg_is_runing = true
 speed = 250
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="BGGround"]
@@ -194,7 +194,7 @@ autostart = true
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 170.695, 811.712 )
+transform/pos = Vector2( 162.326, 622.025 )
 
 [node name="TimerMenu" type="Timer" parent="."]
 

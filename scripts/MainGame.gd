@@ -5,7 +5,6 @@ onready var player = get_node("Player")
 onready var lbl_dificulty = get_node("HUD/Dificulty")
 
 var score = 0
-var first_touch = false
 
 var player_pos = Vector2(200,1280/2)
 
@@ -19,7 +18,7 @@ func _ready():
 	get_node("HUD/Ready").show()
 
 func _input(event):
-	if event.is_action_pressed("ui_touch"):
+	if event.type == InputEvent.SCREEN_TOUCH and event.pressed:
 		if GlobalGame.state == GlobalGame.game_states.WAITING:
 			GlobalGame.state = GlobalGame.game_states.PLAYING
 			get_node("HUD/Ready").hide()
@@ -45,6 +44,8 @@ func game_over():
 	get_node("Player/Anim").stop()
 	player.set_linear_velocity(Vector2(-100,0))
 	get_node("TimerMenu").start()
+	get_node("BG").bg_is_runing = false
+	get_node("BGGround").bg_is_runing = false
 
 func set_process_game(process, porcess_input):
 	set_process(process)
