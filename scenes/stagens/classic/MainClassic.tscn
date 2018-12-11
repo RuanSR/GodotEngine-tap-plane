@@ -143,7 +143,6 @@ max_lines_visible = -1
 
 [node name="Ready" type="Sprite" parent="HUD"]
 
-visibility/visible = false
 transform/pos = Vector2( 34.248, 171.239 )
 transform/scale = Vector2( 3.5, 3.5 )
 texture = ExtResource( 6 )
@@ -194,6 +193,7 @@ autostart = true
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
 
+visibility/visible = false
 transform/pos = Vector2( 162.326, 622.025 )
 
 [node name="TimerMenu" type="Timer" parent="."]
@@ -213,7 +213,5 @@ autostart = false
 [connection signal="timeout" from="SpawnPipes/Timer" to="SpawnPipes" method="_on_Timer_timeout"]
 
 [connection signal="timeout" from="TimerMenu" to="." method="_on_TimeReload_timeout"]
-
-[connection signal="timeout" from="TimerStart" to="." method="_on_TimerStart_timeout"]
 
 

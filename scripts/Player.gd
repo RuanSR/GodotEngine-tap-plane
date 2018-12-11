@@ -20,11 +20,8 @@ func _input(event):
 	if event.is_action_pressed("ui_touch"):
 		if GlobalGame.state == GlobalGame.game_states.PLAYING:
 			tap()
-		elif GlobalGame.state == GlobalGame.game_states.WAITING:
-			print("ESPERANDO")
-		else:
-			print("GAME_OVER")
 
 func tap():
 	set_linear_velocity(Vector2(0,inpulse_force))
+	#get_node("Anim").set_rot(500)
 
