@@ -24,11 +24,11 @@ var hard_pipe_top_collider = Vector2(52,-525)
 func _ready():
 	set_process_game()
 	game = get_tree().get_current_scene()
-	dificulty = game.dificulty
-	print(dificulty)
+	#dificulty = game.dificulty
+	#print(dificulty)
 
 func _process(delta):
-	if game.state == game.game_states.PLAYING:
+	if GlobalGame.state == GlobalGame.game_states.PLAYING:
 		set_dificulty_game(delta)
 		#var pos_x = get_pos().x
 		#pos_x -= speed * delta
@@ -39,13 +39,13 @@ func _process(delta):
 		queue_free()
 
 func set_dificulty_game(delta):
-	if dificulty == game.game_dificulty.EASY:
+	if GlobalGame.dificulty == GlobalGame.game_dificulty.EASY:
 		sprite_pipe_top.set_pos(easy_pipe_top_sprite)
 		collision_pipe_top.set_pos(easy_pipe_top_collider)
-	elif dificulty == game.game_dificulty.NORMAL:
+	elif GlobalGame.dificulty == GlobalGame.game_dificulty.NORMAL:
 		sprite_pipe_top.set_pos(normal_pipe_top_sprite)
 		collision_pipe_top.set_pos(normal_pipe_top_collider)
-	elif dificulty == game.game_dificulty.HARD:
+	elif GlobalGame.dificulty == GlobalGame.game_dificulty.HARD:
 		sprite_pipe_top.set_pos(hard_pipe_top_sprite)
 		collision_pipe_top.set_pos(hard_pipe_top_collider)
 	set_pos(get_pos() - Vector2(speed * delta,0))

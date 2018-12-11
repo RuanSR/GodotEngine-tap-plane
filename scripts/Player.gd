@@ -11,16 +11,16 @@ func _ready():
 	get_node("Anim").play()
 
 func _process(delta):
-	if game.state == game.game_states.WAITING:
+	if GlobalGame.state == GlobalGame.game_states.WAITING:
 		set_gravity_scale(0)
-	elif game.state == game.game_states.PLAYING:
+	elif GlobalGame.state == GlobalGame.game_states.PLAYING:
 		set_gravity_scale(10)
 
 func _input(event):
 	if event.is_action_pressed("ui_touch"):
-		if game.state == game.game_states.PLAYING:
+		if GlobalGame.state == GlobalGame.game_states.PLAYING:
 			tap()
-		elif game.state == game.game_states.WAITING:
+		elif GlobalGame.state == GlobalGame.game_states.WAITING:
 			print("ESPERANDO")
 		else:
 			print("GAME_OVER")
