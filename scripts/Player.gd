@@ -23,5 +23,4 @@ func _input(event):
 
 func tap():
 	set_linear_velocity(Vector2(0,inpulse_force))
-	#get_node("Anim").set_rot(500)
-
+	get_node("AnimPlayer").play("up")
