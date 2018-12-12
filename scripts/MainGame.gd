@@ -13,7 +13,7 @@ func _ready():
 	player.set_pos(player_pos)
 	lbl_score.set_text(str(score))
 	lbl_dificulty.set_text(GlobalGame.parse_to_label(GlobalGame.dificulty))
-	GlobalGame.dificulty = GlobalGame.game_dificulty.NORMAL
+	GlobalGame.dificulty = GlobalGame.game_dificulty.HARD
 	GlobalGame.state = GlobalGame.game_states.WAITING
 
 func _input(event):
