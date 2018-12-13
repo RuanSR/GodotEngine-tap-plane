@@ -7,4 +7,4 @@ func _on_btn_restart_pressed():
 	get_tree().change_scene("res://scenes/stagens/classic/MainClassic.tscn")
 
 func _on_btn_menu_pressed():
-	pass # replace with function body
+	get_tree().change_scene("res://scenes/menu/Manu.tscn")
