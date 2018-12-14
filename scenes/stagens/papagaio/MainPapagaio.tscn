@@ -31,6 +31,7 @@ b = Vector2( 719.523, -1.22287 )
 
 z/z = 2
 script/script = ExtResource( 1 )
+game_over_scene = "res://scenes/stagens/papagaio/PapagaioGameOver.tscn"
 
 [node name="BGs" parent="." instance=ExtResource( 2 )]
 
@@ -133,6 +134,8 @@ one_shot = false
 autostart = true
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
+
+visibility/visible = false
 
 [node name="TimerMenu" type="Timer" parent="."]
 

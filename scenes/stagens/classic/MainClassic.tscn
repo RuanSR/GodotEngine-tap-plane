@@ -31,6 +31,7 @@ b = Vector2( 719.523, -1.22287 )
 
 z/z = 2
 script/script = ExtResource( 1 )
+game_over_scene = "res://scenes/stagens/classic/ClassicGameOver.tscn"
 
 [node name="BGs" parent="." instance=ExtResource( 2 )]
 

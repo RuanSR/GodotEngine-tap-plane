@@ -14,7 +14,7 @@ var game_description
 var game_preview
 var player_preview
 var game
-
+var player
 func _ready():
 	load_stage()
 
@@ -24,7 +24,9 @@ func inst_preview_game():
 	get_node("Game").add_child(game)
 	
 func inst_preview_player():
-	var player = player_preview.instance()
+	if player != null:
+		player.queue_free()
+	player = player_preview.instance()
 	player.set_pos(Vector2(0,0))
 	get_node("Game").add_child(player)
 
@@ -35,16 +37,16 @@ func _on_btn_right_pressed():
 		game_stage_index +=1
 		load_stage()
 	else:
-		print("Apenas um stage")
+		game_stage_index -=1
 
 func _on_btn_left_pressed():
-	if GlobalGame.all_stages.size() < game_stage_index-1:
+	if GlobalGame.all_stages.size() > game_stage_index-1:
 		#Se número de fazes é 1, o index máx é 0
 		#Se número de fazes é 2, o index máx é 1
 		game_stage_index -=1
 		load_stage()
 	else:
-		print("Apenas um stage")
+		game_stage_index +=1
 
 func _on_btn_play_pressed():
 	get_tree().change_scene(game)

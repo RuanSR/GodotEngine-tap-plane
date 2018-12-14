@@ -1,5 +1,7 @@
 extends Node2D
 
+export (String, FILE, "*.tscn") var game_over_scene
+
 onready var lbl_score = get_node("HUD/Score")
 onready var player = get_node("Player")
 onready var lbl_dificulty = get_node("HUD/Dificulty")
@@ -11,7 +13,7 @@ var player_pos = Vector2(200,1280/2)
 func _ready():
 	set_process_game(true,true)
 	player.set_pos(player_pos)
-	GlobalGame.dificulty = GlobalGame.game_dificulty.HARD
+	GlobalGame.dificulty = GlobalGame.game_dificulty.EASY
 	GlobalGame.state = GlobalGame.game_states.WAITING
 	lbl_score.set_text(str(score))
 	lbl_dificulty.set_text(GlobalGame.parse_to_label(GlobalGame.dificulty))
@@ -63,4 +65,4 @@ func set_process_game(process, porcess_input):
 	set_process_input(porcess_input)
 
 func _on_TimeReload_timeout():
-	get_tree().change_scene("res://scenes/stagens/classic/ClassicGameOver.tscn")
+	get_tree().change_scene(game_over_scene)

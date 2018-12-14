@@ -1,5 +1,6 @@
 extends ParallaxBackground
 
+
 export var bg_is_runing = false
 export var speed = 0
 var offset_x = 0
