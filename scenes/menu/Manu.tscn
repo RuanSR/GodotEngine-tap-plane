@@ -41,7 +41,7 @@ font/use_mipmaps = false
 font/use_filter = false
 font/font = ExtResource( 2 )
 
-[node name="Manu" type="Control"]
+[node name="Menu" type="Control"]
 
 anchor/right = 1
 anchor/bottom = 1

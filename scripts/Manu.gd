@@ -31,22 +31,20 @@ func inst_preview_player():
 	get_node("Game").add_child(player)
 
 func _on_btn_right_pressed():
-	if GlobalGame.all_stages.size() > game_stage_index+1:
-		#Se número de fazes é 1, o index máx é 0
-		#Se número de fazes é 2, o index máx é 1
+	if game_stage_index+1 != GlobalGame.all_stages.size():
 		game_stage_index +=1
 		load_stage()
 	else:
-		game_stage_index -=1
+		game_stage_index = 0
+		load_stage()
 
 func _on_btn_left_pressed():
-	if GlobalGame.all_stages.size() > game_stage_index-1:
-		#Se número de fazes é 1, o index máx é 0
-		#Se número de fazes é 2, o index máx é 1
+	if game_stage_index-1 >= 0:
 		game_stage_index -=1
 		load_stage()
 	else:
-		game_stage_index +=1
+		game_stage_index = GlobalGame.all_stages.size()-1
+		load_stage()
 
 func _on_btn_play_pressed():
 	get_tree().change_scene(game)
