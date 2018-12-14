@@ -23,7 +23,7 @@ func _input(event):
 			GlobalGame.state = GlobalGame.game_states.PLAYING
 
 func _process(delta):
-	area_die()
+	#area_die()
 	hud()
 
 func count_score():
@@ -66,3 +66,4 @@ func set_process_game(process, porcess_input):
 
 func _on_TimeReload_timeout():
 	get_tree().change_scene(game_over_scene)
+

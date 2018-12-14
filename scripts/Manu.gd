@@ -14,8 +14,11 @@ var game_description
 var game_preview
 var player_preview
 var game
+
 var player
+
 func _ready():
+	get_node("Logo/Version").set_text(GlobalGame.version)
 	load_stage()
 
 func inst_preview_game():

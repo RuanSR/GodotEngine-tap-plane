@@ -98,7 +98,7 @@ shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 shapes/1/shape = SubResource( 3 )
-shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 1280 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 1075 )
 shapes/1/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -115,7 +115,7 @@ _update_shape_index = 0
 
 [node name="Buttom" type="CollisionShape2D" parent="Area"]
 
-transform/pos = Vector2( 0, 1280 )
+transform/pos = Vector2( 0, 1075 )
 shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 1
