@@ -16,15 +16,7 @@ var player_preview
 var game
 
 func _ready():
-	game_name_stage = GlobalGame.all_stages[game_stage_index][game_name_index]
-	game_description = GlobalGame.all_stages[game_stage_index][game_description_index]
-	game_preview = GlobalGame.all_stages[game_stage_index][game_preview_index]
-	player_preview = GlobalGame.all_stages[game_stage_index][player_preview_index]
-	game = GlobalGame.all_stages[game_stage_index][game_index]
-	get_node("Logo/Stage").set_text(game_name_stage)
-	get_node("Logo/Description").set_text(game_description)
-	inst_preview_game()
-	inst_preview_player()
+	load_stage()
 
 func inst_preview_game():
 	var game = game_preview.instance()
@@ -37,12 +29,33 @@ func inst_preview_player():
 	get_node("Game").add_child(player)
 
 func _on_btn_right_pressed():
-	game_preview +=1
-	game += 1
+	if GlobalGame.all_stages.size() > game_stage_index+1:
+		#Se número de fazes é 1, o index máx é 0
+		#Se número de fazes é 2, o index máx é 1
+		game_stage_index +=1
+		load_stage()
+	else:
+		print("Apenas um stage")
 
 func _on_btn_left_pressed():
-	game_preview -=1
-	game -= 1
+	if GlobalGame.all_stages.size() < game_stage_index-1:
+		#Se número de fazes é 1, o index máx é 0
+		#Se número de fazes é 2, o index máx é 1
+		game_stage_index -=1
+		load_stage()
+	else:
+		print("Apenas um stage")
 
 func _on_btn_play_pressed():
 	get_tree().change_scene(game)
+
+func load_stage():
+	game_name_stage = GlobalGame.all_stages[game_stage_index][game_name_index]
+	game_description = GlobalGame.all_stages[game_stage_index][game_description_index]
+	game_preview = GlobalGame.all_stages[game_stage_index][game_preview_index]
+	player_preview = GlobalGame.all_stages[game_stage_index][player_preview_index]
+	game = GlobalGame.all_stages[game_stage_index][game_index]
+	get_node("Logo/Stage").set_text(game_name_stage)
+	get_node("Logo/Description").set_text(game_description)
+	inst_preview_game()
+	inst_preview_player()
