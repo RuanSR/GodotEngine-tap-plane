@@ -7,7 +7,7 @@ onready var collision_pipe_top = get_node("AreaCollision/AreaDie/CollisionPipeTo
 var game
 var speed = 250
 var dificulty
-var limit_pipe_delete = -100
+var limit_pipe_delete = -200
 
 #POSITION EASY
 var easy_pipe_top_sprite = Vector2(0,-1100)
@@ -49,16 +49,19 @@ func set_dificulty_game(delta):
 		sprite_pipe_top.set_pos(hard_pipe_top_sprite)
 		collision_pipe_top.set_pos(hard_pipe_top_collider)
 	set_pos(get_pos() - Vector2(speed * delta,0))
+
 func set_process_game():
 	set_process(true)
 
 func _on_AreaDie_body_enter( body ):
-	if body.get_name() == "Player":
-		print("Die")
-		game.game_over()
+	if GlobalGame.state == GlobalGame.game_states.PLAYING:
+		if body.get_name() == "Player":
+			#print("Die")
+			get_node("Sound_fx/hit").play()
+			game.game_over()
 
 func _on_AreaPoints_body_enter( body ):
 	if body.get_name() == "Player":
-		print("Point")
+		#print("Point")
+		get_node("Sound_fx/point").play()
 		game.count_score()
-		

@@ -92,6 +92,7 @@ centered = false
 
 [node name="Area" type="StaticBody2D" parent="."]
 
+editor/display_folded = true
 input/pickable = true
 shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )

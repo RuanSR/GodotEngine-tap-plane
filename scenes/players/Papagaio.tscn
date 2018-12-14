@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/papagaio/felpudo/felpudoVoa1.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/papagaio/felpudo/felpudoVoa4.png" type="Texture" id=5]
 [ext_resource path="res://assets/papagaio/felpudo/felpudoVoa5.png" type="Texture" id=6]
 [ext_resource path="res://assets/papagaio/felpudo/felpudoVoa6.png" type="Texture" id=7]
+[ext_resource path="res://assets/classic/audio/wing.ogg" type="AudioStream" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -86,5 +87,16 @@ playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
+
+[node name="fly_fx" type="StreamPlayer" parent="."]
+
+stream/stream = ExtResource( 8 )
+stream/play = false
+stream/loop = false
+stream/volume_db = 0.0
+stream/autoplay = false
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
 
 

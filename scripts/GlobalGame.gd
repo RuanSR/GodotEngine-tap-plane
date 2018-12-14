@@ -5,6 +5,7 @@ var version = "v0.8.2"
 enum game_states {PLAYING, WAITING, GAME_OVER}
 enum game_dificulty {EASY, NORMAL, HARD}
 
+
 #Classic
 onready var preview_classic_stage = preload("res://scenes/stagens/classic/BGs.tscn")
 onready var preview_classic_player = preload("res://scenes/players/ClassicPlayer.tscn")

@@ -17,6 +17,7 @@ func _ready():
 	GlobalGame.state = GlobalGame.game_states.WAITING
 	lbl_score.set_text(str(score))
 	lbl_dificulty.set_text(GlobalGame.parse_to_label(GlobalGame.dificulty))
+
 func _input(event):
 	if event.type == InputEvent.SCREEN_TOUCH and event.pressed:
 		if GlobalGame.state == GlobalGame.game_states.WAITING:
