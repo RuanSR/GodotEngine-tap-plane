@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://scripts/ParallaxBG.gd" type="Script" id=1]
+[ext_resource path="res://assets/papagaio/fundo.png" type="Texture" id=2]
+[ext_resource path="res://assets/classic/sprites/base.png" type="Texture" id=3]
+
+[node name="BGs" type="Node2D"]
+
+[node name="BG" type="ParallaxBackground" parent="."]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+scroll/offset = Vector2( 0, 0 )
+scroll/base_offset = Vector2( 0, 0 )
+scroll/base_scale = Vector2( 1, 1 )
+scroll/limit_begin = Vector2( 0, 0 )
+scroll/limit_end = Vector2( 0, 0 )
+scroll/ignore_camera_zoom = true
+script/script = ExtResource( 1 )
+bg_is_runing = true
+speed = 200
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BG"]
+
+motion/scale = Vector2( 1, 1 )
+motion/offset = Vector2( 0, 0 )
+motion/mirroring = Vector2( 729, 0 )
+
+[node name="BG" type="Sprite" parent="BG/ParallaxLayer"]
+
+transform/scale = Vector2( 2.7, 2.7 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="BGGround" type="ParallaxBackground" parent="."]
+
+layer = 0
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+scroll/offset = Vector2( 0, 0 )
+scroll/base_offset = Vector2( 0, 0 )
+scroll/base_scale = Vector2( 1, 1 )
+scroll/limit_begin = Vector2( 0, 0 )
+scroll/limit_end = Vector2( 0, 0 )
+scroll/ignore_camera_zoom = true
+script/script = ExtResource( 1 )
+bg_is_runing = true
+speed = 250
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BGGround"]
+
+motion/scale = Vector2( 1, 1 )
+motion/offset = Vector2( 0, 0 )
+motion/mirroring = Vector2( 705.6, 0 )
+
+[node name="Ground" type="Sprite" parent="BGGround/ParallaxLayer"]
+
+transform/pos = Vector2( -3.09094, 1061.95 )
+transform/scale = Vector2( 2.1, 2.1 )
+texture = ExtResource( 3 )
+centered = false
+
+

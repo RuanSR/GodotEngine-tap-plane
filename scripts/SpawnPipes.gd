@@ -1,5 +1,9 @@
 extends Node2D
 
+#export (File, "*.tscn") var wold_scene
+#onready export (NodePath) var other_node = get_node(other_node)
+#export(String, FILE, "*.tscn") var node
+#export(Node2D) node setget set_node
 onready var pre_pipe = preload("res://scenes/stagens/classic/ClassicPipes.tscn")
 var game
 

@@ -3,9 +3,13 @@ extends Node
 enum game_states {PLAYING, WAITING, GAME_OVER}
 enum game_dificulty {EASY, NORMAL, HARD}
 
-
+#Classic
 onready var preview_classic_stage = preload("res://scenes/stagens/classic/BGs.tscn")
 onready var preview_classic_player = preload("res://scenes/players/ClassicPlayer.tscn")
+
+#Papagaio
+#onready var preview_classic_stage = preload("res://scenes/stagens/classic/BGs.tscn")
+#onready var preview_classic_player = preload("res://scenes/players/ClassicPlayer.tscn")
 
 var pack_classic_stage
 
