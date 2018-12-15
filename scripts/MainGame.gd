@@ -24,7 +24,7 @@ func _input(event):
 			GlobalGame.state = GlobalGame.game_states.PLAYING
 
 func _process(delta):
-	#area_die()
+	area_die()
 	hud()
 
 func count_score():
@@ -60,6 +60,9 @@ func game_over():
 	player.set_linear_velocity(Vector2(-100,0))
 	get_node("Player/Anim").stop()
 	get_node("TimerMenu").start()
+	
+	if GlobalGame.sound_fx:
+		get_node("hit").play()
 
 func set_process_game(process, porcess_input):
 	set_process(process)

@@ -49,8 +49,8 @@ func set_process_game():
 func _on_AreaDie_body_enter( body ):
 	if GlobalGame.state == GlobalGame.game_states.PLAYING:
 		if body.get_name() == "Player":
-			if GlobalGame.sound_fx:
-				get_node("Sound_fx/hit").play()
+			#if GlobalGame.sound_fx:
+				#get_node("Sound_fx/hit").play()
 			game.game_over()
 
 func _on_AreaPoints_body_enter( body ):

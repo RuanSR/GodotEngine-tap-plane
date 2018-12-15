@@ -1,6 +1,6 @@
 extends Node
 
-var version = "v0.9.0"
+var version = "v0.9.1"
 
 enum game_states {PLAYING, WAITING, GAME_OVER}
 enum game_dificulty {EASY, NORMAL, HARD}

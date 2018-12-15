@@ -16,4 +16,3 @@ func _on_Timer_timeout():
 		var pipe = pre_pipe.instance()
 		pipe.set_pos(Vector2(720,rand_range(230,830)))
 		get_owner().add_child(pipe)
-		print("pipe criado")
