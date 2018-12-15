@@ -24,4 +24,5 @@ func _input(event):
 func tap():
 	set_linear_velocity(Vector2(0,inpulse_force))
 	get_node("AnimPlayer").play("up")
-	get_node("fly_fx").play()
+	if GlobalGame.sound_fx:
+		get_node("fly_fx").play()

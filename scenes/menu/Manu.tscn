@@ -61,6 +61,9 @@ margin/top = 0.0
 margin/right = 0.0
 margin/bottom = 0.0
 script/script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Game" type="Node2D" parent="."]
 
@@ -69,6 +72,10 @@ transform/pos = Vector2( 360, 800 )
 [node name="Logo" type="Node2D" parent="."]
 
 editor/display_folded = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="Logo" type="Label" parent="Logo"]
 
@@ -185,6 +192,10 @@ visibility_mode = 0
 
 editor/display_folded = true
 transform/pos = Vector2( 170, 950 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="btn_play" type="TouchScreenButton" parent="BtnPlay"]
 
@@ -222,15 +233,15 @@ max_lines_visible = -1
 [node name="BtnSettings" type="Node2D" parent="."]
 
 editor/display_folded = true
-visibility/visible = false
-transform/pos = Vector2( 650, 1050 )
+transform/pos = Vector2( 600, 960 )
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
 
 [node name="btn_settings" type="TouchScreenButton" parent="BtnSettings"]
 
-transform/scale = Vector2( 0.2, 0.2 )
+transform/scale = Vector2( 0.3, 0.3 )
 normal = ExtResource( 7 )
 pressed = ExtResource( 8 )
 bitmask = null
@@ -245,7 +256,7 @@ visibility_mode = 0
 
 editor/display_folded = true
 visibility/visible = false
-transform/pos = Vector2( 650, 1120 )
+transform/pos = Vector2( 650, 1000 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -290,5 +301,7 @@ visibility_mode = 0
 [connection signal="pressed" from="btn_right" to="." method="_on_btn_right_pressed"]
 
 [connection signal="pressed" from="BtnPlay/btn_play" to="." method="_on_btn_play_pressed"]
+
+[connection signal="pressed" from="BtnSettings/btn_settings" to="." method="_on_btn_settings_pressed"]
 
 

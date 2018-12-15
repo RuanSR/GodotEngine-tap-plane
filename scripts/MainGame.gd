@@ -13,7 +13,7 @@ var player_pos = Vector2(200,1280/2)
 func _ready():
 	set_process_game(true,true)
 	player.set_pos(player_pos)
-	GlobalGame.dificulty = GlobalGame.game_dificulty.EASY
+	#GlobalGame.dificulty = GlobalGame.game_dificulty.EASY
 	GlobalGame.state = GlobalGame.game_states.WAITING
 	lbl_score.set_text(str(score))
 	lbl_dificulty.set_text(GlobalGame.parse_to_label(GlobalGame.dificulty))

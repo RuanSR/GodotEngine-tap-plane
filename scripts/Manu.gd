@@ -1,5 +1,7 @@
 extends Control
 
+onready var settings = get_node("Settings")
+
 #INDEX
 var game_stage_index = 0
 var game_name_index = 0
@@ -25,6 +27,7 @@ func inst_preview_game():
 	var game = game_preview.instance()
 	game.set_pos(Vector2(0,0))
 	get_node("Game").add_child(game)
+	GlobalGame.bg_scene_settings = game_stage_index
 	
 func inst_preview_player():
 	if player != null:
@@ -62,3 +65,7 @@ func load_stage():
 	get_node("Logo/Description").set_text(game_description)
 	inst_preview_game()
 	inst_preview_player()
+
+
+func _on_btn_settings_pressed():
+	get_tree().change_scene("res://scenes/menu/Settings.tscn")

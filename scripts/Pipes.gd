@@ -24,18 +24,11 @@ var hard_pipe_top_collider = Vector2(52,-525)
 func _ready():
 	set_process_game()
 	game = get_tree().get_current_scene()
-	#dificulty = game.dificulty
-	#print(dificulty)
 
 func _process(delta):
 	if GlobalGame.state == GlobalGame.game_states.PLAYING:
 		set_dificulty_game(delta)
-		#var pos_x = get_pos().x
-		#pos_x -= speed * delta
-		#set_pos(Vector2(pos_x,0))
-	
 	if get_pos().x <= limit_pipe_delete:
-		print("PIPE: DELETED")
 		queue_free()
 
 func set_dificulty_game(delta):
@@ -56,12 +49,12 @@ func set_process_game():
 func _on_AreaDie_body_enter( body ):
 	if GlobalGame.state == GlobalGame.game_states.PLAYING:
 		if body.get_name() == "Player":
-			#print("Die")
-			get_node("Sound_fx/hit").play()
+			if GlobalGame.sound_fx:
+				get_node("Sound_fx/hit").play()
 			game.game_over()
 
 func _on_AreaPoints_body_enter( body ):
 	if body.get_name() == "Player":
-		#print("Point")
-		get_node("Sound_fx/point").play()
+		if GlobalGame.sound_fx:
+			get_node("Sound_fx/point").play()
 		game.count_score()
