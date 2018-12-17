@@ -1,10 +1,13 @@
 extends Node2D
 
-export (String, FILE, "*.tscn") var game_over_scene
+var game_over_scene = "res://scenes/stagens/MainGameOver.tscn"
 
 onready var lbl_score = get_node("HUD/Score")
-onready var player = get_node("Player")
+#onready var player = get_node("Player")
 onready var lbl_dificulty = get_node("HUD/Dificulty")
+
+var background
+var player
 
 var score = 0
 
@@ -12,8 +15,11 @@ var player_pos = Vector2(200,1280/2)
 
 func _ready():
 	set_process_game(true,true)
+	background = GlobalGame.instanece_bg()
+	player = GlobalGame.instanece_player()
 	player.set_pos(player_pos)
-	#GlobalGame.dificulty = GlobalGame.game_dificulty.EASY
+	get_node(".").add_child(background)
+	get_node(".").add_child(player)
 	GlobalGame.state = GlobalGame.game_states.WAITING
 	lbl_score.set_text(str(score))
 	lbl_dificulty.set_text(GlobalGame.parse_to_label(GlobalGame.dificulty))
@@ -51,8 +57,8 @@ func hud():
 		dificulty.show()
 		ready.hide()
 		player.show()
-		get_node("BGs/BG").bg_is_runing = false
-		get_node("BGs/BGGround").bg_is_runing = false
+		background.get_child(0).bg_is_runing = false
+		background.get_child(1).bg_is_runing = false
 
 func game_over():
 	set_process_game(false,true)
@@ -70,4 +76,3 @@ func set_process_game(process, porcess_input):
 
 func _on_TimeReload_timeout():
 	get_tree().change_scene(game_over_scene)
-

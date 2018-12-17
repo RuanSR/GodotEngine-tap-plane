@@ -6,24 +6,18 @@ onready var hard_check_box = get_node("Panel/CheckBox_hard")
 
 onready var sound_fx = get_node("Panel/CheckButton")
 
-var bg_game
+var bg
 
 var dificulty
 
 func _ready():
-	bg_game = GlobalGame.all_stages[GlobalGame.bg_scene_settings][2]
+	bg = GlobalGame.instanece_bg()
+	get_node(".").add_child(bg)
 	dificulty = GlobalGame.dificulty
-	print(GlobalGame.sound_fx)
-	load_bg()
 	load_data()
 
 func _on_btn_close_pressed():
 	get_tree().change_scene("res://scenes/menu/Manu.tscn")
-
-func load_bg():
-	var game = bg_game.instance()
-	game.set_pos(Vector2(0,0))
-	get_node("BG").add_child(game)
 
 func load_data():
 	if dificulty == 0:

@@ -1,26 +1,24 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://scripts/MainGame.gd" type="Script" id=1]
-[ext_resource path="res://scenes/stagens/classic/BGs.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/classic/font/nokiafc22.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://assets/classic/sprites/message.png" type="Texture" id=4]
-[ext_resource path="res://scripts/SpawnPipes.gd" type="Script" id=5]
-[ext_resource path="res://scenes/players/ClassicPlayer.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/classic/audio/hit.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/classic/font/nokiafc22.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/classic/sprites/message.png" type="Texture" id=3]
+[ext_resource path="res://scripts/SpawnPipes.gd" type="Script" id=4]
+[ext_resource path="res://assets/classic/audio/hit.ogg" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 
 font/size = 160
 font/use_mipmaps = false
 font/use_filter = false
-font/font = ExtResource( 3 )
+font/font = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
 
 font/size = 32
 font/use_mipmaps = false
 font/use_filter = false
-font/font = ExtResource( 3 )
+font/font = ExtResource( 2 )
 
 [sub_resource type="SegmentShape2D" id=3]
 
@@ -28,13 +26,10 @@ custom_solver_bias = 0.0
 a = Vector2( 0.622162, -2.4523 )
 b = Vector2( 719.523, -1.22287 )
 
-[node name="MainClassic" type="Node2D"]
+[node name="MainGame" type="Node2D"]
 
 z/z = 2
 script/script = ExtResource( 1 )
-game_over_scene = "res://scenes/stagens/classic/ClassicGameOver.tscn"
-
-[node name="BGs" parent="." instance=ExtResource( 2 )]
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -88,7 +83,7 @@ max_lines_visible = -1
 
 transform/pos = Vector2( 34.248, 171.239 )
 transform/scale = Vector2( 3.5, 3.5 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 centered = false
 
 [node name="Area" type="StaticBody2D" parent="."]
@@ -125,7 +120,7 @@ _update_shape_index = 1
 
 editor/display_folded = true
 transform/pos = Vector2( 800, 700 )
-script/script = ExtResource( 5 )
+script/script = ExtResource( 4 )
 
 [node name="Timer" type="Timer" parent="SpawnPipes"]
 
@@ -133,11 +128,6 @@ process_mode = 1
 wait_time = 2.0
 one_shot = false
 autostart = true
-
-[node name="Player" parent="." instance=ExtResource( 6 )]
-
-visibility/visible = false
-transform/pos = Vector2( 162.326, 622.025 )
 
 [node name="TimerMenu" type="Timer" parent="."]
 
@@ -155,7 +145,7 @@ autostart = false
 
 [node name="hit" type="StreamPlayer" parent="."]
 
-stream/stream = ExtResource( 7 )
+stream/stream = ExtResource( 5 )
 stream/play = false
 stream/loop = false
 stream/volume_db = 0.0
