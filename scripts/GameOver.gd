@@ -2,6 +2,7 @@ extends Node2D
 
 func _ready():
 	get_node(".").add_child(GlobalGame.instanece_bg())
+	get_node("HUD/Score").set_text(str(GlobalGame.record_score))
 	get_node("HUD/Dificulty").set_text(GlobalGame.parse_to_label(GlobalGame.dificulty))
 
 func _on_btn_restart_pressed():

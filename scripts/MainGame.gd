@@ -3,8 +3,8 @@ extends Node2D
 var game_over_scene = "res://scenes/stagens/MainGameOver.tscn"
 
 onready var lbl_score = get_node("HUD/Score")
-#onready var player = get_node("Player")
 onready var lbl_dificulty = get_node("HUD/Dificulty")
+onready var lbl_record_score = get_node("HUD/RecordScore")
 
 var background
 var player
@@ -22,6 +22,7 @@ func _ready():
 	get_node(".").add_child(player)
 	GlobalGame.state = GlobalGame.game_states.WAITING
 	lbl_score.set_text(str(score))
+	lbl_record_score.set_text(str(GlobalGame.record_score))
 	lbl_dificulty.set_text(GlobalGame.parse_to_label(GlobalGame.dificulty))
 
 func _input(event):
@@ -35,6 +36,9 @@ func _process(delta):
 
 func count_score():
 	score += 1
+	if score > GlobalGame.record_score:
+		GlobalGame.record_score = score
+		lbl_record_score.set_text(str(GlobalGame.record_score))
 	lbl_score.set_text(str(score))
 
 func area_die():
@@ -47,14 +51,20 @@ func hud():
 	var score = get_node("HUD/Score")
 	var dificulty = get_node("HUD/Dificulty")
 	var ready = get_node("HUD/Ready")
+	var record = get_node("HUD/Record")
+	var record_score = get_node("HUD/RecordScore")
 	if GlobalGame.state == GlobalGame.game_states.WAITING:
 		score.hide()
 		dificulty.hide()
+		record.hide()
+		record_score.hide()
 		ready.show()
 		player.hide()
 	else:
 		score.show()
 		dificulty.show()
+		record.show()
+		record_score.show()
 		ready.hide()
 		player.show()
 		background.get_child(0).bg_is_runing = false
@@ -66,9 +76,9 @@ func game_over():
 	player.set_linear_velocity(Vector2(-100,0))
 	get_node("Player/Anim").stop()
 	get_node("TimerMenu").start()
-	
 	if GlobalGame.sound_fx:
 		get_node("hit").play()
+	save.save(GlobalGame.record_score)
 
 func set_process_game(process, porcess_input):
 	set_process(process)

@@ -7,7 +7,6 @@ onready var hard_check_box = get_node("Panel/CheckBox_hard")
 onready var sound_fx = get_node("Panel/CheckButton")
 
 var bg
-
 var dificulty
 
 func _ready():
@@ -17,6 +16,7 @@ func _ready():
 	load_data()
 
 func _on_btn_close_pressed():
+	config_save.conf_save(GlobalGame.dificulty,GlobalGame.sound_fx)
 	get_tree().change_scene("res://scenes/menu/Manu.tscn")
 
 func load_data():

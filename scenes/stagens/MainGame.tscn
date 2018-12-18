@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://scripts/MainGame.gd" type="Script" id=1]
 [ext_resource path="res://assets/classic/font/nokiafc22.ttf" type="DynamicFontData" id=2]
@@ -20,6 +20,13 @@ font/use_mipmaps = false
 font/use_filter = false
 font/font = ExtResource( 2 )
 
+[sub_resource type="DynamicFont" id=4]
+
+font/size = 42
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 2 )
+
 [sub_resource type="SegmentShape2D" id=3]
 
 custom_solver_bias = 0.0
@@ -33,7 +40,6 @@ script/script = ExtResource( 1 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -68,13 +74,53 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 14.0
+margin/right = 196.0
+margin/bottom = 40.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 5
 custom_constants/shadow_offset_y = 5
 text = "DIFICULTY"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Record" type="Label" parent="HUD"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 571.0
+margin/top = 0.0
+margin/right = 719.0
+margin/bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+text = "RECORD"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="RecordScore" type="Label" parent="HUD"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 570.0
+margin/top = 40.0
+margin/right = 720.0
+margin/bottom = 88.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+text = "0"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

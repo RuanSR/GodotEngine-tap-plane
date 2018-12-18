@@ -1,12 +1,12 @@
 extends Control
 
-
 #INDEX
 var game_title_index = 0
 var game_description_index = 1
 var game_preview_index = 4
 var player_preview_index = 2
 var game_index = 4
+var game_score_index = 5
 
 #OBJECTS
 var game_title
@@ -53,9 +53,12 @@ func load_stage():
 	player_preview = GlobalGame.STAGES[GlobalGame.game_stage_index][player_preview_index]
 	get_node("Logo/Stage").set_text(game_title)
 	get_node("Logo/Description").set_text(game_description)
+	save.init()
+	get_node("Logo/RecordScore").set_text(str(GlobalGame.record_score))
 	inst_preview_player()
 	bg = GlobalGame.instanece_bg()
 	get_node(".").add_child(bg)
+	
 
 func _on_btn_settings_pressed():
 	get_tree().change_scene("res://scenes/menu/Settings.tscn")
