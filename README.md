@@ -8,9 +8,7 @@ Tap Plane é um game casual baseado no clássico Flappy Bird, o jogo é basicame
 - Salva os records no browser
 
 ## Tech
-
 - GodotEngine - Game Engine totalmente gratuita e Open Source
 - GDScript - Linguagem de programação baseado em python
-- 
 ## Play the game!
-Play here: ruansr.itch.io/tap-plane
+[Play Here]( ruansr.itch.io/tap-plane)
